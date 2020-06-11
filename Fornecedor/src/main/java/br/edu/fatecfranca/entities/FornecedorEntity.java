@@ -67,6 +67,13 @@ public class FornecedorEntity {
 		this.inscricoEstadual = inscricoEstadual;
 	}
 
+	public String messageSucess() {
+		return "Sucess";
+	}
+	
+	public String messageNotFound() {
+		return "Not found";
+	}
 	@Override
 	public String toString() {
 		return "FornecedorEntity \n id: " + id + ", \n nome: " + nome + ",\n cnpj: " + cnpj + ", \n avaliacao: " + avaliacao
