@@ -21,6 +21,8 @@ import br.edu.fatecfranca.repositories.FornecedorRepository;
 public class FornecedorController {
 	
 	// injeção de dependencia
+	// execução de métodos sem instanciar um objeto
+	// objeto injecao não foi instanciado, foi apenas declarado como o tipo de uma classe interface
 	@Autowired
 	FornecedorRepository injecao;
 	
@@ -46,6 +48,7 @@ public class FornecedorController {
 	
 	@PutMapping
 	public String updateFornecedor(@RequestBody FornecedorEntity fornecedor) {
+		// no metodo put o mongoDB vê se o ID foi passado como parametro e busca se existe já criado, caso não ele cria, caso sim ele atualiza 
 		String id = fornecedor.getId();
 		
 		boolean actual = injecao.existsById(id);
