@@ -17,7 +17,7 @@ import br.edu.fatecfranca.entities.ProductEntity;
 import br.edu.fatecfranca.repositories.ProductRepository;
 
 @RestController
-@RequestMapping("/api/procuct")
+@RequestMapping("/api/product")
 public class ProductController {
 
 	@Autowired
