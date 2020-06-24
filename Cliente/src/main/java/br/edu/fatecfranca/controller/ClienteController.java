@@ -1,4 +1,4 @@
-package br.edu.fatecfranca.controlers;
+package br.edu.fatecfranca.controller;
 
 import java.util.List;
 
@@ -13,35 +13,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.fatecfranca.entities.ClientEntity;
+import br.edu.fatecfranca.entities.ClienteEntity;
 import br.edu.fatecfranca.repositories.ClienteRepository;
 
-@CrossOrigin(origins="*")
+//@CrossOrigin -> configura quem pode consumir a API
+//(origins = "*") -> a requisição de qualquer site - IP
+//segurança da API -> CORS (Cross-origin resource sharing)
+@CrossOrigin(origins = "*")
+
 @RestController
-@RequestMapping("api/cliente")
-public class ClientController {
-	
+@RequestMapping("/api/cliente")
+public class ClienteController {
+
 	@Autowired
 	private ClienteRepository injecao;
 	
 	@PostMapping
-	public ClientEntity addClient(@RequestBody ClientEntity client) {
-		return injecao.save(client);
+	public ClienteEntity addCliente(@RequestBody ClienteEntity cliente) {
+		return injecao.save(cliente);
 	}
 	
 	@GetMapping
-	public List<ClientEntity> getClient() {
+	public List<ClienteEntity> getClientes(){
 		return injecao.findAll();
 	}
-	
-	@PutMapping
-	public ClientEntity updateClient(@RequestBody ClientEntity client) {
-		return injecao.save(client);
-	}
-	
+
 	@DeleteMapping("/{id}")
-	public boolean deleteClient(@PathVariable Long id) {
+	public boolean deleteCliente(@PathVariable Long id) {
 		injecao.deleteById(id);
 		return true;
 	}
+	
+	@PutMapping
+	public ClienteEntity updateCliente(@RequestBody ClienteEntity cliente) {
+		return injecao.save(cliente);
+	}
+
+
 }
