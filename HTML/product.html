@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<hr lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="product.js"></script>
+</head>
+
+<body onload='consultar()'>
+<div class="container">
+    <h1>Inserção de Produtp</h1>
+    <form action="">
+        <div class="form-group">
+                <label for="nome"> Descricao</label>
+                <input type="text" id = 'descricao' class = 'form-control'>
+            </div>
+            <div class="form-group">
+                <label for="endereco"> Preço</label>
+                <input type="text" id = 'preco' class = 'form-control'>
+            </div>
+            <div class="form-group">
+                <label for="rg"> Quantidade</label>
+                <input type="text" id = 'qtd' class = 'form-control'>
+            </div>
+            <div class="form-group">
+                <label for="idade"> Nome</label>
+                <input type="text" id = 'nome' class = 'form-control'>
+            </div>
+            
+            <button class="btn btn-primary" onclick = 'product()'> Cadastrar </button>
+        </form>
+    </div>
+    </br>
+    <hr/>
+    <div id = 'consulta'class="container">
+        <h1>Lista de produtos Cadastrados</h1>
+        <table class="table" id = 'tabela'>
+            <tr>
+                <th>Descrição</th>
+                <th>preco</th>
+                <th>quantidade</th>
+                <th>nome</th>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
