@@ -6,6 +6,11 @@
     <title>Client </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="client.js"></script>
+    <style>
+        img{
+            width: 30px;
+        }
+    </style>
 </head>
 
 <body onload='consultar()'>
@@ -13,6 +18,7 @@
     <h1>Inserção de Cliente</h1>
     <form action="">
         <div class="form-group">
+            <input type="number" id = 'id' hidden>
                 <label for="nome"> Nome</label>
                 <input type="text" id = 'nome' class = 'form-control'>
             </div>
@@ -46,6 +52,8 @@
                 <th>RG</th>
                 <th>Idade</th>
                 <th>Nota</th>
+                <th>Remove</th>
+                <th>Atualiza</th>
             </tr>
         </table>
     </div>

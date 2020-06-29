@@ -42,16 +42,23 @@ function consultar() {
             var col2 = document.createElement('td')   
             var col3 = document.createElement('td')   
             var col4 = document.createElement('td')   
+            var col5 = document.createElement('td')   
+            var col6 = document.createElement('td')   
             
             col1.textContent = produto.descricao
             col2.textContent = produto.preco
             col3.textContent = produto.qtd
             col4.textContent = produto.nome
+            var imageRemove = document.createElement('img')
+            imageRemove.setAttribute('src', './remover.png')
+            imageRemove.setAttribute('onclick', `remover(${cliente.id})`)
 
             linha.appendChild(col1)
             linha.appendChild(col2)
             linha.appendChild(col3)
             linha.appendChild(col4)
+            linha.appendChild(col5)
+            col5.appendChild(imageRemove)
         })
     }
     req.send()
