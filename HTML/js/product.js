@@ -50,16 +50,51 @@ function consultar() {
             col3.textContent = produto.qtd
             col4.textContent = produto.nome
             var imageRemove = document.createElement('img')
-            imageRemove.setAttribute('src', './remover.png')
-            imageRemove.setAttribute('onclick', `remover(${cliente.id})`)
+            imageRemove.setAttribute('src', 'img/remover.png')
+            imageRemove.setAttribute('onclick', `remover(${produto.id})`)
+            
+            
+            var imageAtualizar = document.createElement('img')
+            imageAtualizar.setAttribute('src', 'img/alterar.png')
+            imageAtualizar.setAttribute('onclick', `remover(${produto.id})`)
 
             linha.appendChild(col1)
             linha.appendChild(col2)
             linha.appendChild(col3)
             linha.appendChild(col4)
             linha.appendChild(col5)
+            linha.appendChild(col6)
             col5.appendChild(imageRemove)
+            col6.appendChild(imageAtualizar)
         })
     }
     req.send()
+}
+function remover(id) {
+    var req = new XMLHttpRequest()
+
+    req.open('DELETE', 'http://localhost:8080/api/produto/'+id, true)
+
+    req.onload = function() {
+        if((req.status >= 200) && (req.status < 400)){
+            console.log('Conenctou com sucesso')
+        }else{
+            console.log('Falha na conexão')
+        }
+    }
+    req.send()
+    alert('Produto removido com sucesso')
+    location.reload()
+}
+
+function atualizar(produto) {
+
+   document.getElementById("descricao").value = produto.descricao
+   Number(document.getElementById("preco").value) =  produto.preco
+   Number(document.getElementById("qtd").value) =   produto.qtd
+   document.getElementById("nome").value =  produto.nome
+   
+   document.getElementById("id").value = produto.id
+
+
 }

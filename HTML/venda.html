@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalho de POO </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="./js/client.js"></script>
+    <script src="./js/venda.js"></script>
     <style>
         img{
             width: 30px;
@@ -29,32 +29,32 @@
           font-size: 13.5pt;
         }
     </style>
-
-<script>
-  function link(){
-    
-    var url = (window.location.href)
-    var qnt_caracter = url.length
-    var indice = 0
-    var acum = ''
-    for(let i =0; i< url.length -12; i++){
-      // primeiro acesso vai sobreescrever o espço em branco da variável
-      if(indice = 0 ){
-        acum = url[i]
-        indice = 0
-      }else{
-        acum += url[i]
-      }
-    }
-    document.getElementById('link1').setAttribute('href', `${String(acum)}/client.html`)
+    <script>
+      function link(){
+        
+        var url = (window.location.href)
+        var qnt_caracter = url.length
+        var indice = 0
+        var acum = ''
+        for(let i =0; i< url.length -10; i++){
+          // primeiro acesso vai sobreescrever o espço em branco da variável
+          if(indice = 0 ){
+            acum = url[i]
+            indice = 0
+          }else{
+            acum += url[i]
+          }
+        }
+        document.getElementById('link1').setAttribute('href', `${String(acum)}/client.html`)
         document.getElementById('linkNav1').setAttribute('href', `${String(acum)}/client.html`)
         document.getElementById('link2').setAttribute('href', `${String(acum)}/product.html`)
         document.getElementById('linkNav2').setAttribute('href', `${String(acum)}/product.html`)
         document.getElementById('link3').setAttribute('href', `${String(acum)}/venda.html`)
         document.getElementById('linkNav3').setAttribute('href', `${String(acum)}/venda.html`)
-  } 
+    
+      } 
 
-  function toggle(){
+      function toggle(){
         console.log(document.querySelector('.nav').style.display == '')
         var div = document.querySelector('.nav')
         if(div.style.display == ''){
@@ -63,37 +63,37 @@
           div.style.display = ''
         }
       }
-
-</script>
+    
+    </script>
 </head>
 
 <body onload='consultar()'>
-     <!-- navegação -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href=""><img src="./img/home.png" alt="" srcset=""></a>
-      <button onclcik = "toggle()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href=""><img src="./img/home.png" alt=""></a>
+      <button onclick = "toggle()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class = 'nav'>
         
-        <a id = 'linkNav1'onclick = "link()">Cliente</a>
-      
-      <a id = 'linkNav2'onclick = "link()">Venda</a>
-      <a id = 'linkNav3'onclick = "link()">Produto</a>
-    </div>
+          <a id = 'linkNav1'onclick = "link()">Cliente</a>
+        
+        <a id = 'linkNav2'onclick = "link()">Venda</a>
+        <a id = 'linkNav3'onclick = "link()">Produto</a>
+      </div>
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a onclick = "link()"id = 'link1'class="nav-link">Cliente <span class="sr-only">(current)</span></a>
-         
+          <li class="nav-item ">
+            <a class="nav-link" onclick = "link()"id = 'link1'>Cliente <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a onclick = "link()" id = 'link2'class="nav-link">Produto</a>
+            <a class="nav-link" onclick = "link()"id = 'link2'>Produto</a>
           </li>
           
-          <li class="nav-item">
-            <a onclick = "link()" id = 'link3'class="nav-link">Venda</a>
+          <li class="nav-item active">
+            <a class="nav-link" onclick = "link()"id = 'link3'>Venda</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -105,45 +105,35 @@
 
 
 
-      
 <div class="container">
-    <h1>Inserção de Cliente</h1>
+    <h1>Inserção de Venda</h1>
     <form action="">
         <div class="form-group">
             <input type="number" id = 'id' hidden>
-                <label for="nome"> Nome</label>
-                <input type="text" id = 'nome' class = 'form-control'>
+                <label for="nome"> N° Venda</label>
+                <input type="number" id = 'numVenda' class = 'form-control'>
             </div>
             <div class="form-group">
-                <label for="endereco"> Endereço</label>
-                <input type="text" id = 'endereco' class = 'form-control'>
+                <label for="endereco"> Cliente</label>
+                <input type="text" id = 'cliente' class = 'form-control'>
             </div>
             <div class="form-group">
-                <label for="rg"> RG</label>
-                <input type="text" id = 'rg' class = 'form-control'>
+                <label for="rg"> Produto</label>
+                <input type="text" id = 'produto' class = 'form-control'>
             </div>
-            <div class="form-group">
-                <label for="idade"> Idade</label>
-                <input type="text" id = 'idade' class = 'form-control'>
-            </div>
-            <div class="form-group">
-                <label for="nota"> Nota</label>
-                <input type="text" id = 'nota' class = 'form-control'>
-            </div>
-            <button class="btn btn-primary" onclick = 'client()'> Cadastrar </button>
+            <button class="btn btn-primary" onclick = 'venda()'> Cadastrar </button>
         </form>
     </div>
     </br>
     <hr/>
     <div id = 'consulta'class="container">
-        <h1>Lista de clientes Cadastrados</h1>
+        <h1>Lista de vendas Cadastradas</h1>
         <table class="table" id = 'tabela'>
             <tr>
-                <th>Nome</th>
-                <th>Endereço</th>
-                <th>RG</th>
-                <th>Idade</th>
-                <th>Nota</th>
+                <th>ID</th>
+                <th>N° Vendas</th>
+                <th>Clientes</th>
+                <th>Produtos</th>
                 <th>Remove</th>
                 <th>Atualiza</th>
             </tr>
