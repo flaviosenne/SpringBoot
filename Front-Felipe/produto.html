@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<hr lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho de POO </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="./js/produto.js"></script>
+    <style>
+        img{
+            width: 30px;
+        }
+        .nav {
+          display: none;
+          padding: 10px;
+          width: 100px;
+          position: absolute;
+          right: 10px;
+          top: 60px;
+          height: 100px;
+          font-size: 14pt;
+          background-color: rgba(214, 208, 208, 0.9);
+        }
+        a{
+          text-decoration: none;
+          color: black;
+        }
+        .nav a:hover {
+          font-size: 13.5pt;
+        }
+    </style>
+    <script>
+      function link(){
+        
+        var url = (window.location.href)
+        var qnt_caracter = url.length
+        var indice = 0
+        var acum = ''
+        for(let i =0; i< url.length -12; i++){
+          // primeiro acesso vai sobreescrever o espço em branco da variável
+          if(indice = 0 ){
+            acum = url[i]
+            indice = 0
+          }else{
+            acum += url[i]
+          }
+        }
+        document.getElementById('link1').setAttribute('href', `${String(acum)}/client.html`)
+        document.getElementById('linkNav1').setAttribute('href', `${String(acum)}/client.html`)
+        document.getElementById('link2').setAttribute('href', `${String(acum)}/product.html`)
+        document.getElementById('linkNav2').setAttribute('href', `${String(acum)}/product.html`)
+        document.getElementById('link3').setAttribute('href', `${String(acum)}/venda.html`)
+        document.getElementById('linkNav3').setAttribute('href', `${String(acum)}/venda.html`)
+      } 
+
+      function toggle(){
+        console.log(document.querySelector('.nav').style.display == '')
+        var div = document.querySelector('.nav')
+        if(div.style.display == ''){
+          div.style.display = 'grid'
+        }else if(div.style.display == 'grid'){          
+          div.style.display = ''
+        }
+      }
+    </script>
+</head>
+
+<body onload='consultar()'>
+ <!-- navegação -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href=""><img src="./img/home.png" alt="" srcset=""></a>
+  <button onclick = "toggle()"class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class = 'nav'>
+        
+    <a>Cliente</a>
+  
+  <a >Fornecedor</a>
+  <a >Produto</a>
+</div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" >Cliente <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link">Produto</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link">Venda</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container">
+    <h1>Cadastro de Produto</h1>
+    <form action="">
+        <div class="form-group">
+                <label for="nome"> Descricao</label>
+                <input type="text" id = 'descricao' class = 'form-control'>
+            </div>
+            <div class="form-group">
+                <label for="endereco"> Preço</label>
+                <input type="text" id = 'preco' class = 'form-control'>
+            </div>
+            <div class="form-group">
+                <label for="rg"> Quantidade</label>
+                <input type="text" id = 'qtd' class = 'form-control'>
+            </div>
+            <div class="form-group">
+                <label for="idade"> Nome</label>
+                <input type="text" id = 'nome' class = 'form-control'>
+            </div>
+            
+            <button class="btn btn-primary" onclick = 'cadastrar()'> Cadastrar </button>
+        </form>
+    </div>
+    </br>
+    <hr/>
+    <div id = 'consulta'class="container">
+        <h1>Lista de produtos Cadastrados</h1>
+        <table class="table" id = 'tabela'>
+            <tr>
+                <th>Descrição</th>
+                <th>preco</th>
+                <th>quantidade</th>
+                <th>nome</th>
+                <th>remover</th>
+                <th>atualizar</th>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

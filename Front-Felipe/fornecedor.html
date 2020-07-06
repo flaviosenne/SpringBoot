@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<hr lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho de POO </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="./js/fornecedor.js"></script>
+    <style>
+        img{
+            width: 30px;
+        }
+        .nav {
+          display: none;
+          padding: 10px;
+          width: 150px;
+          position: absolute;
+          right: 10px;
+          top: 60px;
+          height: 100px;
+          font-size: 14pt;
+          background-color: rgba(214, 208, 208, 0.9);
+        }
+        a{
+          text-decoration: none;
+          color: black;
+        }
+        .nav a:hover {
+          font-size: 13.5pt;
+          color: black;
+        }
+    </style>
+    <script>
+
+      function toggle(){
+        console.log(document.querySelector('.nav').style.display == '')
+        var div = document.querySelector('.nav')
+        if(div.style.display == ''){
+          div.style.display = 'grid'
+        }else if(div.style.display == 'grid'){          
+          div.style.display = ''
+        }
+      }
+    
+    </script>
+</head>
+
+<body onload='consultar()'>
+    <!-- navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href=""><img src="./img/home.png" alt=""></a>
+      <button onclick = "toggle()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class = 'nav'>
+        
+         <a href = ''>Cliente</a>
+        
+        <a href = ''>Fornecedor</a>
+        <a href = ''>Produto</a>
+      </div>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href = ''>Cliente <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href = ''>Produto</a>
+          </li>
+          
+          <li class="nav-item active">
+            <a class="nav-link" href = ''>Fornecedor</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+
+
+<div class="container">
+    <h1>Cadastro de Fornecedor</h1>
+    <form action="">
+        <div class="form-group">
+            <input type="number" id = 'id' hidden>
+                <label for="razao"> Razão Social</label>
+                <input type="text" id = 'razao' class = 'form-control'>
+            </div>
+            <div class="form-group">
+                <label for="fantasia"> Nome Fantasia</label>
+                <input type="text" id = 'fantasia' class = 'form-control'>
+            </div>
+            <div class="form-group">
+                <label for="cnpj"> CNPJ</label>
+                <input type="text" id = 'cnpj' class = 'form-control'>
+            </div>
+            <div class="form-group">
+                <label for="telefone"> Telefone</label>
+                <input type="text" id = 'telefone' class = 'form-control'>
+            </div>
+            <div class="form-group">
+                <label for="endereco"> Endereço</label>
+                <input type="text" id = 'endereco' class = 'form-control'>
+            </div>
+            <div class="form-group">
+                <label for="email"> Email</label>
+                <input type="text" id = 'email' class = 'form-control'>
+            </div>
+            <button class="btn btn-primary" onclick = 'cadastrar()'> Cadastrar </button>
+        </form>
+    </div>
+    </br>
+    <hr/>
+    <div id = 'consulta'class="container">
+        <h1>Lista de Fornecedores Cadastrados</h1>
+        <table class="table" id = 'tabela'>
+            <tr>
+                <th>ID</th>
+                <th>Razão Social</th>
+                <th>Nome Fantasia</th>
+                <th>CNPJ</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Email</th>
+                <th>Remove</th>
+                <th>Atualiza</th>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
